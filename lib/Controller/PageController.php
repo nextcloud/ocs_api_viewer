@@ -9,16 +9,13 @@ use OCA\OCSAPIViewer\AppInfo\Application;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\ContentSecurityPolicy;
 use OCP\AppFramework\Http\TemplateResponse;
-use OCP\AppFramework\Services\IInitialState;
 use OCP\IRequest;
 use OCP\Util;
 
 class PageController extends Controller {
 	public function __construct(
-		IRequest      $request,
-		IInitialState $initialState,
+		IRequest $request,
 	) {
-		$this->initialState = $initialState;
 		parent::__construct(Application::APP_ID, $request);
 	}
 
