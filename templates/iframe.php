@@ -9,6 +9,8 @@ declare(strict_types=1);
 	<link rel="stylesheet" href="/apps/ocs_api_viewer/js/stoplight-elements.css">
 </head>
 <body>
-	<elements-api apiDescriptionUrl="../apps/<?php p($_['app']); ?>" logo="/apps/ocs_api_viewer/img/app-color.svg" router="hash" hideExport="true" />
+	<div style="background-color: white">
+		<elements-api apiDescriptionUrl="../apps/<?php p($_['app']); ?>" logo="/apps/ocs_api_viewer/img/app-color.svg" router="hash" hideExport="true" />
+	</div>
 </body>
 </html>
