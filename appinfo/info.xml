@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+	<!--
+	SPDX-FileCopyrightText: Kate Döen <kate.doeen@nextcloud.com>
+	SPDX-License-Identifier: CC0-1.0
+	-->
+	<id>ocs_api_viewer</id>
+	<name>OCS API Viewer</name>
+	<summary>View OCS API specifications for installed apps</summary>
+	<description><![CDATA[View OCS API specifications for installed apps]]></description>
+	<version>0.0.1</version>
+	<licence>agpl</licence>
+	<author mail="kate.doeen@nextcloud.com">Kate Döen</author>
+	<namespace>OCSAPIViewer</namespace>
+	<category>integration</category>
+	<bugs>https://github.com/provokateurin/ocs_api_viewer</bugs>
+	<dependencies>
+		<nextcloud min-version="26" max-version="26"/>
+	</dependencies>
+	<navigations>
+		<navigation>
+			<name>OCS API</name>
+			<route>ocs_api_viewer.page.index</route>
+			<order>100</order>
+		</navigation>
+	</navigations>
+</info>
