@@ -16,15 +16,12 @@ use Psr\Log\LoggerInterface;
 
 class PageController extends Controller {
 	private ThemesService $themesService;
-	private LoggerInterface $logger;
 
 	public function __construct(
 		IRequest $request,
 		ThemesService $themesService,
-		LoggerInterface $logger,
 	) {
 		$this->themesService = $themesService;
-		$this->logger = $logger;
 		parent::__construct(Application::APP_ID, $request);
 	}
 
@@ -51,7 +48,6 @@ class PageController extends Controller {
 
 		$theme = 'system';
 		$enabledThemes = array_map(fn(string $id) => explode('-', $id)[0], $this->themesService->getEnabledThemes());
-		$this->logger->critical("themes: ". implode(",", $enabledThemes));
 		if (count(array_filter($enabledThemes, fn(string $id) => $id == 'dark')) > 0) {
 			$theme = 'dark';
 		} else if (count(array_filter($enabledThemes, fn(string $id) => $id == 'light')) > 0) {
