@@ -4,6 +4,7 @@ const webpackConfig = require('@nextcloud/webpack-vue-config')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const path = require('path');
 
 const buildMode = process.env.NODE_ENV
 const isDev = buildMode === 'development'
@@ -12,6 +13,12 @@ webpackConfig.devtool = isDev ? 'cheap-source-map' : 'source-map'
 webpackConfig.stats = {
 	colors: true,
 	modules: false,
+}
+
+const appId = 'ocs_api_viewer'
+webpackConfig.entry = {
+	main: { import: path.join(__dirname, 'src', 'main.js'), filename: appId + '-main.js' },
+	'iframe-theme': { import: path.join(__dirname, 'src', 'iframe-theme.js'), filename: appId + '-iframe-theme.js' },
 }
 
 webpackConfig.plugins.push(
