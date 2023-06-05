@@ -1,4 +1,6 @@
 # Unreleased
+
+# 1.0.2
 - Support Nextcloud 27
 
 # 1.0.1
