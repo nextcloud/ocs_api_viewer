@@ -9,7 +9,7 @@
 	<name>OCS API Viewer</name>
 	<summary>View OCS API specifications for installed apps</summary>
 	<description><![CDATA[View OCS API specifications for installed apps]]></description>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<licence>agpl</licence>
 	<author mail="kate.doeen@nextcloud.com">Kate Döen</author>
 	<namespace>OCSAPIViewer</namespace>
