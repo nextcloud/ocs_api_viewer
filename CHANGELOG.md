@@ -1,4 +1,5 @@
 # Unreleased
+- Add screenshot
 
 # 1.0.2
 - Support Nextcloud 27

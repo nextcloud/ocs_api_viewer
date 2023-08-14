@@ -15,6 +15,7 @@
 	<namespace>OCSAPIViewer</namespace>
 	<category>integration</category>
 	<bugs>https://github.com/provokateurin/ocs_api_viewer</bugs>
+	<screenshot>https://raw.githubusercontent.com/provokateurin/ocs_api_viewer/main/docs/screenshot.png</screenshot>
 	<dependencies>
 		<nextcloud min-version="26" max-version="27"/>
 	</dependencies>
