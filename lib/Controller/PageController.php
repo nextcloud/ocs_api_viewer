@@ -7,6 +7,7 @@ namespace OCA\OCSAPIViewer\Controller;
 
 use OCA\OCSAPIViewer\AppInfo\Application;
 use OCA\Theming\Service\ThemesService;
+use OCP\App\IAppManager;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\ContentSecurityPolicy;
 use OCP\AppFramework\Http\TemplateResponse;
@@ -20,7 +21,9 @@ class PageController extends Controller {
 	public function __construct(
 		IRequest $request,
 		ThemesService $themesService,
+		IAppManager $appManager,
 	) {
+		$this->appManager = $appManager;
 		$this->themesService = $themesService;
 		parent::__construct(Application::APP_ID, $request);
 	}
@@ -54,7 +57,11 @@ class PageController extends Controller {
 			$theme = 'light';
 		}
 
-		$response = new TemplateResponse(Application::APP_ID, 'iframe', ['app' => $app, 'theme' => $theme], TemplateResponse::RENDER_AS_BLANK);
+		$response = new TemplateResponse(Application::APP_ID, 'iframe', [
+			'app' => $app,
+			'viewer-root' => $this->appManager->getAppWebPath(Application::APP_ID),
+			'theme' => $theme,
+		], TemplateResponse::RENDER_AS_BLANK);
 		$csp = new ContentSecurityPolicy();
 		$csp->addAllowedFrameAncestorDomain("'self'");
 		$csp->addAllowedScriptDomain("'unsafe-eval'");
