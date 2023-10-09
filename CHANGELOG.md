@@ -1,4 +1,6 @@
 # Unreleased
+
+# 1.0.4
 - Support Nextcloud 28
 - Fix path issues with instances hosted at sub-folders or different apps directories
 - Add missing appinfo links
