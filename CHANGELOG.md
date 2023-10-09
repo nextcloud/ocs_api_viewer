@@ -1,4 +1,6 @@
 # Unreleased
+- Support Nextcloud 28
+- Fix path issues with instances hosted at sub-folders or different apps directories
 
 # 1.0.3
 - Add screenshot
