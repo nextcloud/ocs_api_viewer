@@ -5,7 +5,7 @@
   "author": "Kate Döen <kate.doeen@nextcloud.com>",
   "contributors": [],
   "bugs": {
-    "url": "https://github.com/provokateurin/ocs_api_viewer"
+    "url": "https://github.com/nextcloud/ocs_api_viewer"
   },
   "license": "agpl",
   "private": true,
