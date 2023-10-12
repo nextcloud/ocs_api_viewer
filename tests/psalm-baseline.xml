@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="4.x-dev@">
+  <file src="lib/Controller/PageController.php">
+    <UndefinedClass occurrences="3">
+      <code>$this-&gt;themesService</code>
+      <code>ThemesService</code>
+      <code>ThemesService</code>
+    </UndefinedClass>
+  </file>
+  <file src="lib/Service/AppsService.php">
+    <UndefinedClass occurrences="1">
+      <code>OC</code>
+    </UndefinedClass>
+  </file>
+</files>

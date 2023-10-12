@@ -14,10 +14,10 @@
 	<author mail="kate.doeen@nextcloud.com">Kate Döen</author>
 	<namespace>OCSAPIViewer</namespace>
 	<category>integration</category>
-	<bugs>https://github.com/provokateurin/ocs_api_viewer/issues</bugs>
-	<website>https://github.com/provokateurin/ocs_api_viewer</website>
-	<repository>https://github.com/provokateurin/ocs_api_viewer.git</repository>
-	<screenshot>https://raw.githubusercontent.com/provokateurin/ocs_api_viewer/main/docs/screenshot.png</screenshot>
+	<website>https://github.com/nextcloud/ocs_api_viewer</website>
+	<bugs>https://github.com/nextcloud/ocs_api_viewer/issues</bugs>
+	<repository>https://github.com/nextcloud/ocs_api_viewer.git</repository>
+	<screenshot>https://raw.githubusercontent.com/nextcloud/ocs_api_viewer/main/docs/screenshot.png</screenshot>
 	<dependencies>
 		<nextcloud min-version="26" max-version="28"/>
 	</dependencies>
