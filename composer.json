@@ -32,7 +32,7 @@
 			"composer/package-versions-deprecated": true
 		},
 		"platform": {
-			"php": "7.4"
+			"php": "8.0.2"
 		},
 		"sort-packages": true
 	}
