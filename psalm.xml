@@ -28,10 +28,6 @@
 		<UndefinedDocblockClass>
 			<errorLevel type="suppress">
 				<referencedClass name="OC\AppFramework\OCS\BaseResponse"/>
-				<referencedClass name="Doctrine\DBAL\Schema\Schema" />
-				<referencedClass name="Doctrine\DBAL\Schema\SchemaException" />
-				<referencedClass name="Doctrine\DBAL\Driver\Statement" />
-				<referencedClass name="Doctrine\DBAL\Schema\Table" />
 			</errorLevel>
 		</UndefinedDocblockClass>
 	</issueHandlers>

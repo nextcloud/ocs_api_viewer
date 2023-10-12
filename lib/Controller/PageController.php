@@ -17,6 +17,7 @@ use Psr\Log\LoggerInterface;
 
 class PageController extends Controller {
 	private ThemesService $themesService;
+	private IAppManager $appManager;
 
 	public function __construct(
 		IRequest $request,
