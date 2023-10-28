@@ -18,24 +18,42 @@ class AppsService {
 	 * @return string[]
 	 */
 	public function findSupported(): array {
-		return array_values(array_filter(array_merge(["core"], $this->appManager->getInstalledApps()), function (string $app) {
-			$path = $this->getSpecPath($app);
-			return $path != null && file_exists($path);
-		}));
+		$apis = ['core'];
+
+		foreach ($this->appManager->getInstalledApps() as $app) {
+			try {
+				$baseDir = $this->appManager->getAppPath($app);
+				$iterator = new \DirectoryIterator($baseDir);
+				foreach ($iterator as $file) {
+					if ($file->getFilename() == 'openapi.json') {
+						$apis[] = $app;
+					} else if (str_starts_with($file->getFilename(), 'openapi-') && str_ends_with($file->getFilename(), '.json')) {
+						$apis[] = $app . '-' . substr($file->getFilename(), 8, -5);
+					}
+				}
+			} catch (AppPathNotFoundException) {
+			}
+		}
+		return $apis;
 	}
 
 	private function getSpecPath(string $app): ?string {
-		if ($app == "core") {
+		$scopeSuffix = '';
+		if ($app === 'core') {
 			$baseDir = OC::$SERVERROOT . DIRECTORY_SEPARATOR . "core";
 		} else {
 			try {
+				if (str_contains($app, '-')) {
+					[$app, $scope] = explode('-', $app, 2);
+					$scopeSuffix = '-' . $scope;
+				}
 				$baseDir = $this->appManager->getAppPath($app);
 			} catch (AppPathNotFoundException $e) {
 				return null;
 			}
 		}
 
-		return $baseDir . DIRECTORY_SEPARATOR . "openapi.json";
+		return $baseDir . DIRECTORY_SEPARATOR . "openapi$scopeSuffix.json";
 	}
 
 	public function getSpec(string $app): string {
