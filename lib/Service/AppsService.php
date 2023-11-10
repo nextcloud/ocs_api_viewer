@@ -18,7 +18,7 @@ class AppsService {
 	 * @return string[]
 	 */
 	public function findSupported(): array {
-		$apis = ['core'];
+		$apis = [];
 
 		foreach ($this->appManager->getInstalledApps() as $app) {
 			try {
@@ -34,6 +34,11 @@ class AppsService {
 			} catch (AppPathNotFoundException) {
 			}
 		}
+
+		sort($apis);
+
+		array_unshift($apis, 'core');
+
 		return $apis;
 	}
 
