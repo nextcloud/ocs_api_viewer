@@ -5,6 +5,7 @@ declare(strict_types=1);
 
 namespace OCA\OCSAPIViewer\Controller;
 
+use OC\Security\CSP\ContentSecurityPolicyNonceManager;
 use OCA\OCSAPIViewer\AppInfo\Application;
 use OCA\Theming\Service\ThemesService;
 use OCP\App\IAppManager;
@@ -13,19 +14,21 @@ use OCP\AppFramework\Http\ContentSecurityPolicy;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IRequest;
 use OCP\Util;
-use Psr\Log\LoggerInterface;
 
 class PageController extends Controller {
 	private ThemesService $themesService;
 	private IAppManager $appManager;
+	private ContentSecurityPolicyNonceManager $nonceManager;
 
 	public function __construct(
 		IRequest $request,
 		ThemesService $themesService,
 		IAppManager $appManager,
+		ContentSecurityPolicyNonceManager $nonceManager
 	) {
 		$this->appManager = $appManager;
 		$this->themesService = $themesService;
+		$this->nonceManager = $nonceManager;
 		parent::__construct(Application::APP_ID, $request);
 	}
 
@@ -62,6 +65,7 @@ class PageController extends Controller {
 			'app' => $app,
 			'viewer-root' => $this->appManager->getAppWebPath(Application::APP_ID),
 			'theme' => $theme,
+			'nonce' => $this->nonceManager->getNonce(),
 		], TemplateResponse::RENDER_AS_BLANK);
 		$csp = new ContentSecurityPolicy();
 		$csp->addAllowedFrameAncestorDomain("'self'");

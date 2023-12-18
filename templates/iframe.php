@@ -5,9 +5,9 @@ declare(strict_types=1);
 ?>
 <html<?php echo $_['theme'] == 'dark' ? ' data-theme="dark"' : ($_['theme'] == 'light' ? ' data-theme="light"' : ''); ?>>
 <head>
-	<script src="<?php echo $_['viewer-root']; ?>/js/stoplight-elements.js"></script>
-	<link rel="stylesheet" href="<?php echo $_['viewer-root']; ?>/js/stoplight-elements.css">
-	<?php if ($_['theme'] == 'system') echo('<script src="' . $_['viewer-root'] . '/js/ocs_api_viewer-iframe-theme.js"></script>'); ?>
+	<script nonce="<?php echo $_['nonce']; ?>" src="<?php echo $_['viewer-root']; ?>/js/stoplight-elements.js"></script>
+	<link nonce="<?php echo $_['nonce']; ?>" rel="stylesheet" href="<?php echo $_['viewer-root']; ?>/js/stoplight-elements.css">
+	<?php if ($_['theme'] == 'system') echo('<script nonce="' . $_['nonce'] .'" src="' . $_['viewer-root'] . '/js/ocs_api_viewer-iframe-theme.js"></script>'); ?>
 </head>
 <body>
 	<div style="background-color: var(--color-canvas);">
