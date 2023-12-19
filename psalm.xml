@@ -31,4 +31,7 @@
 			</errorLevel>
 		</UndefinedDocblockClass>
 	</issueHandlers>
+	<stubs>
+		<file name="tests/stubs/oc_security_csp_contentsecuritypolicynoncemanager.php" />
+	</stubs>
 </psalm>
