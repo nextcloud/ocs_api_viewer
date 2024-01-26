@@ -8,10 +8,14 @@ namespace OCA\OCSAPIViewer\Service;
 use OC;
 use OCP\App\AppPathNotFoundException;
 use OCP\App\IAppManager;
+use OCP\IURLGenerator;
 
 class AppsService {
 
-	public function __construct(private IAppManager $appManager) {
+	public function __construct(
+		private IAppManager $appManager,
+		private IURLGenerator $url,
+	) {
 	}
 
 	/**
@@ -84,6 +88,15 @@ class AppsService {
 				}
 				$operation = &$data['paths'][$path][$method];
 				unset($operation['security']);
+			}
+		}
+		// fix paths when NC is accessed at a sub path
+		$webRoot = $this->url->getWebroot();
+		if ($webRoot !== '' && $webRoot !== '/') {
+			foreach (array_keys($data['paths']) as $path) {
+				$prefixedPath = $webRoot . $path;
+				$data['paths'][$prefixedPath] = $data['paths'][$path];
+				unset($data['paths'][$path]);
 			}
 		}
 
