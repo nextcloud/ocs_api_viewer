@@ -45,7 +45,7 @@ class AppsService {
 	private function getSpecPath(string $app): ?string {
 		$scopeSuffix = '';
 		if ($app === 'core') {
-			$baseDir = OC::$SERVERROOT . DIRECTORY_SEPARATOR . "core";
+			$baseDir = OC::$SERVERROOT . DIRECTORY_SEPARATOR . 'core';
 		} else {
 			try {
 				if (str_contains($app, '-')) {
@@ -65,25 +65,25 @@ class AppsService {
 		$data = json_decode(file_get_contents($this->getSpecPath($app)), true);
 
 		// Only give basic authentication as an option
-		$data["components"]["securitySchemes"] = [
-			"basic_auth" => [
-				"type" => "http",
-				"scheme" => "basic",
+		$data['components']['securitySchemes'] = [
+			'basic_auth' => [
+				'type' => 'http',
+				'scheme' => 'basic',
 			],
 		];
-		$data["security"] = [
+		$data['security'] = [
 			[
-				"basic_auth" => [],
+				'basic_auth' => [],
 			],
 		];
 		// Delete individual security requirements
-		foreach (array_keys($data["paths"]) as $path) {
-			foreach (array_keys($data["paths"][$path]) as $method) {
-				if (!in_array($method, ["delete", "get", "post", "put", "patch", "options"])) {
+		foreach (array_keys($data['paths']) as $path) {
+			foreach (array_keys($data['paths'][$path]) as $method) {
+				if (!in_array($method, ['delete', 'get', 'post', 'put', 'patch', 'options'])) {
 					continue;
 				}
-				$operation = &$data["paths"][$path][$method];
-				unset($operation["security"]);
+				$operation = &$data['paths'][$path][$method];
+				unset($operation['security']);
 			}
 		}
 
