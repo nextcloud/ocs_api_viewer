@@ -1,5 +1,12 @@
 # Unreleased
 
+# 1.0.5
+- Fix nonce
+- Support Nextcloud 29
+- Sort API list alphabetically
+- List and access OpenAPI scopes
+- Fix servers hosted at path not working
+
 # 1.0.4
 - Support Nextcloud 28
 - Fix path issues with instances hosted at sub-folders or different apps directories
