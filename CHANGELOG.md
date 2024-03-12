@@ -1,4 +1,5 @@
 # Unreleased
+- Add missing eslint config
 
 # 1.0.5
 - Fix nonce
