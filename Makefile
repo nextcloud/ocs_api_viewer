@@ -20,6 +20,7 @@ composer:
 
 .PHONY: npm
 npm:
+	npm ci
 	npm run build
 
 .PHONY: clean
