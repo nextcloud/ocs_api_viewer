@@ -1,4 +1,6 @@
 # Unreleased
+
+# 1.0.6
 - Add missing eslint config
 
 # 1.0.5
