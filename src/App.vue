@@ -3,35 +3,33 @@
 	SPDX-FileCopyrightText: Kate Döen <kate.doeen@nextcloud.com>
 	SPDX-License-Identifier: AGPL-3.0-or-later
 	-->
-	<div id="content" class="app-ocs_api_viewer">
-		<AppNavigation>
+	<NcContent app-name="ocs_api_viewer">
+		<NcAppNavigation>
 			<template #list>
-				<AppNavigationItem v-for="appID in appIDs"
+				<NcAppNavigationItem v-for="appID in appIDs"
 					:key="appID"
-					:title="appID"
+					:name="appID"
 					:class="{active: currentAppID === appID}"
 					@click="openApp(appID)" />
 			</template>
-		</AppNavigation>
-		<AppContent>
+		</NcAppNavigation>
+		<NcAppContent>
 			<div v-if="currentAppID" style="height: 100%">
 				<iframe height="100%" width="100%" :src="generateUrl(`/apps/ocs_api_viewer/view/${currentAppID}`)" />
 			</div>
 			<div v-if="!currentAppID">
-				<EmptyContent>
-					<p>{{ t('ocs_api_viewer', 'Select an app to get started') }}</p>
-				</EmptyContent>
+				<NcEmptyContent :name="t('ocs_api_viewer', 'Select an app to get started')" />
 			</div>
-		</AppContent>
-	</div>
+		</NcAppContent>
+	</NcContent>
 </template>
 
 <script>
-import AppContent from '@nextcloud/vue/dist/Components/AppContent.js'
-import AppNavigation from '@nextcloud/vue/dist/Components/AppNavigation.js'
-import AppNavigationItem from '@nextcloud/vue/dist/Components/AppNavigationItem.js'
-import EmptyContent from '@nextcloud/vue/dist/Components/EmptyContent.js'
-import '@nextcloud/dialogs/styles/toast.scss'
+import NcAppContent from '@nextcloud/vue/dist/Components/NcAppContent.js'
+import NcAppNavigation from '@nextcloud/vue/dist/Components/NcAppNavigation.js'
+import NcAppNavigationItem from '@nextcloud/vue/dist/Components/NcAppNavigationItem.js'
+import NcContent from '@nextcloud/vue/dist/Components/NcContent.js'
+import NcEmptyContent from '@nextcloud/vue/dist/Components/NcEmptyContent.js'
 import { generateUrl } from '@nextcloud/router'
 import { showError } from '@nextcloud/dialogs'
 import axios from '@nextcloud/axios'
@@ -39,10 +37,11 @@ import axios from '@nextcloud/axios'
 export default {
 	name: 'App',
 	components: {
-		AppContent,
-		AppNavigation,
-		AppNavigationItem,
-		EmptyContent,
+		NcAppContent,
+		NcAppNavigation,
+		NcAppNavigationItem,
+		NcContent,
+		NcEmptyContent,
 	},
 	data() {
 		return {

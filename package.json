@@ -20,12 +20,12 @@
 		"stylelint:fix": "stylelint css/*.css css/*.scss src/**/*.scss src/**/*.vue --fix"
 	},
 	"dependencies": {
-		"@nextcloud/axios": "^1.10.0",
-		"@nextcloud/dialogs": "^3.1.4",
-		"@nextcloud/router": "^2.0.0",
-		"@nextcloud/vue": "^5.4.0",
-		"@stoplight/elements": "^7.7.16",
-		"vue": "^2.7.0"
+		"@nextcloud/axios": "^2.4.0",
+		"@nextcloud/dialogs": "^5.2.0",
+		"@nextcloud/router": "^3.0.0",
+		"@nextcloud/vue": "^8.10.0",
+		"@stoplight/elements": "^8.1.0",
+		"vue": "^2.7.16"
 	},
 	"browserslist": [
 		"extends @nextcloud/browserslist-config"
@@ -36,12 +36,12 @@
 	},
 	"devDependencies": {
 		"@nextcloud/babel-config": "^1.0.0",
-		"@nextcloud/browserslist-config": "^2.2.0",
-		"@nextcloud/eslint-config": "^8.0.0",
-		"@nextcloud/stylelint-config": "^2.1.2",
-		"@nextcloud/webpack-vue-config": "^5.2.1",
-		"copy-webpack-plugin": "^11.0.0",
-		"eslint-webpack-plugin": "^4.0.0",
-		"stylelint-webpack-plugin": "^4.1.0"
+		"@nextcloud/browserslist-config": "^3.0.0",
+		"@nextcloud/eslint-config": "^8.3.0",
+		"@nextcloud/stylelint-config": "^2.4.0",
+		"@nextcloud/webpack-vue-config": "^6.0.1",
+		"copy-webpack-plugin": "^12.0.2",
+		"eslint-webpack-plugin": "^4.0.1",
+		"stylelint-webpack-plugin": "^5.0.0"
 	}
 }
