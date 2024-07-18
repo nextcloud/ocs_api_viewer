@@ -1,4 +1,5 @@
 # Unreleased
+- Support Nextcloud 30
 
 # 1.0.6
 - Add missing eslint config
