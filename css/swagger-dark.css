@@ -3,7 +3,7 @@
 * one-dark theme adapted to nextcloud
 *
 */
-[data-theme-dark] {
+[data-themes*="dark"] {
     /* primary colors */
 
     .swagger-ui .topbar .download-url-wrapper .select-label select {
@@ -401,7 +401,7 @@
     }
 }
 
-[data-theme-dark] {
+[data-themes*="dark"] {
     /* primary colors */
     --swagger-color: #62a03f;
     --link-color: #2e82e5;
