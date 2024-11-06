@@ -1,0 +1,18 @@
+
+@use 'swagger-dark' as sw;
+
+[data-themes*='dark'] {
+	@include sw.main-swagger;
+
+	@include sw.def-swagger;
+}
+
+@media (prefers-color-scheme: dark)
+{
+	@include sw.main-swagger;
+
+	[data-themes='default'] {
+		@include sw.def-swagger;
+	}
+}
+
