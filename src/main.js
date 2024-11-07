@@ -8,8 +8,7 @@ import { generateFilePath } from '@nextcloud/router'
 import Vue from 'vue'
 import App from './App.vue'
 import 'swagger-ui/dist/swagger-ui.css'
-import '../css/swagger-dark.css'
-import '../css/swagger-system.css'
+import './swagger-theme-dark.scss'
 
 // eslint-disable-next-line
 __webpack_public_path__ = generateFilePath(appName, '', 'js/')
