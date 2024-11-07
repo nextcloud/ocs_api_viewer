@@ -9,9 +9,9 @@
 
 @media (prefers-color-scheme: dark)
 {
-	@include sw.main-swagger;
-
 	[data-themes='default'] {
+		@include sw.main-swagger;
+
 		@include sw.def-swagger;
 	}
 }
