@@ -1,0 +1,29 @@
+<template>
+	<NcAppNavigation>
+		<NcAppNavigationCaption heading-id="nextcloud-api-heading"
+			:is-heading="true"
+			:name="t('ocs_api_viewer', 'Nextcloud Apis')" />
+		<ApiNavigationList arialabel="nextcloud-api-heading"
+			standard />
+		<NcAppNavigationCaption heading-id="installed-api-heading"
+			:is-heading="true"
+			:name="t('ocs_api_viewer', 'Application Apis')" />
+		<ApiNavigationList arialabel="installed-api-heading"
+			:standard="false" />
+	</NcAppNavigation>
+</template>
+
+<script>
+import NcAppNavigation from '@nextcloud/vue/dist/Components/NcAppNavigation.js'
+import NcAppNavigationCaption from '@nextcloud/vue/dist/Components/NcAppNavigationCaption.js'
+import ApiNavigationList from './ApiNavigationList.vue'
+
+export default {
+	name: 'LeftSidebar',
+	components: {
+		NcAppNavigation,
+		NcAppNavigationCaption,
+		ApiNavigationList,
+	},
+}
+</script>

@@ -6,7 +6,9 @@
 import { generateFilePath } from '@nextcloud/router'
 
 import Vue from 'vue'
-import App from './App.vue'
+import MainView from './MainView.vue'
+import { useAppsStore, pinia } from './store.js'
+import router from './router.js'
 import 'swagger-ui/dist/swagger-ui.css'
 import './swagger-theme-dark.scss'
 
@@ -15,7 +17,12 @@ __webpack_public_path__ = generateFilePath(appName, '', 'js/')
 
 Vue.mixin({ methods: { t, n } })
 
+const store = useAppsStore()
+
 export default new Vue({
 	el: '#content',
-	render: h => h(App),
+	render: h => h(MainView),
+	store,
+	pinia,
+	router,
 })

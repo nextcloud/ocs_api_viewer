@@ -24,24 +24,51 @@ class AppsService {
 	public function findSupported(): array {
 		$apis = [];
 
+		$always = $this->appManager->getAlwaysEnabledApps();
 		foreach ($this->appManager->getInstalledApps() as $app) {
+			if (!$this->appManager->isEnabledForUser($app)) {
+				continue;
+			}
+			$appApis = [];
 			try {
 				$baseDir = $this->appManager->getAppPath($app);
 				$iterator = new \DirectoryIterator($baseDir);
 				foreach ($iterator as $file) {
 					if ($file->getFilename() == 'openapi.json') {
-						$apis[] = $app;
+						$appApis[] = $app;
 					} else if (str_starts_with($file->getFilename(), 'openapi-') && str_ends_with($file->getFilename(), '.json')) {
-						$apis[] = $app . '-' . substr($file->getFilename(), 8, -5);
+						$appApis[] = $app . '-' . substr($file->getFilename(), 8, -5);
 					}
 				}
 			} catch (AppPathNotFoundException) {
 			}
+			if (!empty($appApis)) {
+				$appInfo = $this->appManager->getAppInfo($app);
+				$apiInfo =[
+					'id' => $app,
+					'apis' => $appApis,
+					'name' => $appInfo['name'],
+					'version' => $appInfo['version'],
+					'standard' => in_array($app, $always),
+				];
+				$preview = $this->getPreview($app, $baseDir);
+				if ($preview !== null) {
+					$apiInfo['preview'] = $preview;
+				}
+				$apis[] = $apiInfo;
+			}
 		}
 
-		sort($apis);
-
-		array_unshift($apis, 'core');
+		if (file_exists(\OC::$SERVERROOT . '/core/openapi.json')) {
+			array_unshift($apis, [
+				'id' => 'core',
+				'apis' => ['core'],
+				'name' => 'Core Nextcloud API',
+				'version' => \OC_Util::getVersionString(),
+				'standard' => true,
+				'preview' => $this->url->imagePath('core', 'logo/logo.svg')
+			]);
+		}
 
 		return $apis;
 	}
@@ -101,5 +128,18 @@ class AppsService {
 		}
 
 		return json_encode($data);
+	}
+
+	private function getPreview(string $app, string $appPath) : ?string {
+		$appIcon = $appPath . '/img/' . $app . '.svg';
+		if (file_exists($appIcon)) {
+			return $this->url->imagePath($app, $app . '.svg');
+		} else {
+			$appIcon = $appPath . '/img/app.svg';
+			if (file_exists($appIcon)) {
+				return $this->url->imagePath($app, 'app.svg');
+			}
+		}
+		return null;
 	}
 }
