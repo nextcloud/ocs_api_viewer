@@ -6,7 +6,6 @@ declare(strict_types=1);
 return [
 	'routes' => [
 		['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
-		['name' => 'page#view', 'url' => '/view/{app}', 'verb' => 'GET'],
 		['name' => 'apps#index', 'url' => '/apps', 'verb' => 'GET'],
 		['name' => 'apps#load', 'url' => '/apps/{app}', 'verb' => 'GET'],
 	]

@@ -15,9 +15,9 @@
 		</NcAppNavigation>
 		<NcAppContent>
 			<div v-if="currentAppID" style="height: 100%">
-				<iframe height="100%" width="100%" :src="generateUrl(`/apps/ocs_api_viewer/view/${currentAppID}`)" />
+				<SwaggerUI :key="currentAppID" :appid="currentAppID" :openapi="generateUrl(`/apps/ocs_api_viewer/apps/${currentAppID}`)" />
 			</div>
-			<div v-if="!currentAppID">
+			<div v-else>
 				<NcEmptyContent :name="t('ocs_api_viewer', 'Select an app to get started')" />
 			</div>
 		</NcAppContent>
@@ -33,6 +33,7 @@ import NcEmptyContent from '@nextcloud/vue/dist/Components/NcEmptyContent.js'
 import { generateUrl } from '@nextcloud/router'
 import { showError } from '@nextcloud/dialogs'
 import axios from '@nextcloud/axios'
+import SwaggerUI from './SwaggerUI.vue'
 
 export default {
 	name: 'App',
@@ -42,6 +43,7 @@ export default {
 		NcAppNavigationItem,
 		NcContent,
 		NcEmptyContent,
+		SwaggerUI,
 	},
 	data() {
 		return {
