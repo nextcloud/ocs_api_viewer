@@ -51,9 +51,9 @@ class AppsService {
 					'version' => $appInfo['version'],
 					'always_enabled' => in_array($app, $always),
 				];
-				$preview = $this->getPreview($app, $baseDir);
-				if ($preview !== null) {
-					$apiInfo['icon_url'] = $preview;
+				$iconUrl = $this->appManager->getAppIcon($app);
+				if ($iconUrl !== null) {
+					$apiInfo['icon_url'] = $iconUrl;
 				}
 				$apis[] = $apiInfo;
 			}
@@ -128,18 +128,5 @@ class AppsService {
 		}
 
 		return json_encode($data);
-	}
-
-	private function getPreview(string $app, string $appPath) : ?string {
-		$appIcon = $appPath . '/img/' . $app . '.svg';
-		if (file_exists($appIcon)) {
-			return $this->url->imagePath($app, $app . '.svg');
-		} else {
-			$appIcon = $appPath . '/img/app.svg';
-			if (file_exists($appIcon)) {
-				return $this->url->imagePath($app, 'app.svg');
-			}
-		}
-		return null;
 	}
 }
