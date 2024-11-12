@@ -4,12 +4,12 @@
 			:is-heading="true"
 			:name="t('ocs_api_viewer', 'Nextcloud Apis')" />
 		<ApiNavigationList arialabel="nextcloud-api-heading"
-			standard />
+			always-enabled />
 		<NcAppNavigationCaption heading-id="installed-api-heading"
 			:is-heading="true"
 			:name="t('ocs_api_viewer', 'Application Apis')" />
 		<ApiNavigationList arialabel="installed-api-heading"
-			:standard="false" />
+			:always-enabled="false" />
 	</NcAppNavigation>
 </template>
 

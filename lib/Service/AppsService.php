@@ -49,11 +49,11 @@ class AppsService {
 					'apis' => $appApis,
 					'name' => $appInfo['name'],
 					'version' => $appInfo['version'],
-					'standard' => in_array($app, $always),
+					'always_enabled' => in_array($app, $always),
 				];
 				$preview = $this->getPreview($app, $baseDir);
 				if ($preview !== null) {
-					$apiInfo['preview'] = $preview;
+					$apiInfo['icon_url'] = $preview;
 				}
 				$apis[] = $apiInfo;
 			}
@@ -64,9 +64,9 @@ class AppsService {
 				'id' => 'core',
 				'apis' => ['core'],
 				'name' => 'Core Nextcloud API',
-				'version' => \OC_Util::getVersionString(),
-				'standard' => true,
-				'preview' => $this->url->imagePath('core', 'logo/logo.svg')
+				'version' => implode('.', \OCP\Util::getVersion()),
+				'always_enabled' => true,
+				'icon_url' => $this->url->imagePath('core', 'logo/logo.svg')
 			]);
 		}
 

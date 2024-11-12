@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .app-navigation-entry.active .app-icon {
 	filter: unset;
 }
@@ -37,6 +37,18 @@ export default {
 
 	.app-navigation-entry .app-icon {
 		filter: unset;
+	}
+}
+@media (prefers-color-scheme: dark)
+{
+	[data-themes='default'] {
+		.app-navigation-entry.active .app-icon {
+			filter: invert(100%);
+		}
+
+		.app-navigation-entry .app-icon {
+			filter: unset;
+		}
 	}
 }
 

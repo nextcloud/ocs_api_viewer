@@ -7,8 +7,8 @@
 			:open="isSelectedChild($route.params.appid, app)"
 			:to="{path: `/view/${app.id}`}">
 			<template #icon>
-				<AppIcon v-if="app.preview"
-					:href="app.preview" />
+				<AppIcon v-if="app.icon_url"
+					:href="app.icon_url" />
 				<ApiIcon v-else />
 			</template>
 			<NcAppNavigationItem v-for="child in childApis(app)"
@@ -37,13 +37,13 @@ export default {
 		ApiIcon,
 	},
 	props: {
-		standard: { type: Boolean, default: false },
+		alwaysEnabled: { type: Boolean, default: false },
 		arialabel: { type: String, default: '' },
 	},
 	computed: {
 		apps() {
 			const apps = store.apps
-				.filter(app => app.standard === this.standard)
+				.filter(app => app.always_enabled === this.alwaysEnabled)
 				.sort(function(a, b) {
 					// core nextcloud always first
 					if (a.id === 'core') return -1
