@@ -19,7 +19,7 @@ class AppsService {
 	}
 
 	/**
-	 * @return string[]
+	 * @return array[]
 	 */
 	public function findSupported(): array {
 		$apis = [];
@@ -59,7 +59,8 @@ class AppsService {
 			}
 		}
 
-		if (file_exists(\OC::$SERVERROOT . '/core/openapi.json')) {
+		/** @psalm-suppress UndefinedClass */
+		if (file_exists(OC::$SERVERROOT . '/core/openapi.json')) {
 			array_unshift($apis, [
 				'id' => 'core',
 				'specs' => ['core'],
@@ -76,6 +77,7 @@ class AppsService {
 	private function getSpecPath(string $app): ?string {
 		$scopeSuffix = '';
 		if ($app === 'core') {
+			/** @psalm-suppress UndefinedClass */
 			$baseDir = OC::$SERVERROOT . DIRECTORY_SEPARATOR . 'core';
 		} else {
 			try {
