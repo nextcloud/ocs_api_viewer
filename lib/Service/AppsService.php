@@ -29,24 +29,24 @@ class AppsService {
 			if (!$this->appManager->isEnabledForUser($app)) {
 				continue;
 			}
-			$appApis = [];
+			$appSpecs = [];
 			try {
 				$baseDir = $this->appManager->getAppPath($app);
 				$iterator = new \DirectoryIterator($baseDir);
 				foreach ($iterator as $file) {
 					if ($file->getFilename() == 'openapi.json') {
-						$appApis[] = $app;
+						$appSpecs[] = $app;
 					} else if (str_starts_with($file->getFilename(), 'openapi-') && str_ends_with($file->getFilename(), '.json')) {
-						$appApis[] = $app . '-' . substr($file->getFilename(), 8, -5);
+						$appSpecs[] = $app . '-' . substr($file->getFilename(), 8, -5);
 					}
 				}
 			} catch (AppPathNotFoundException) {
 			}
-			if (!empty($appApis)) {
+			if ($appSpecs !== []) {
 				$appInfo = $this->appManager->getAppInfo($app);
-				$apiInfo =[
+				$apiInfo = [
 					'id' => $app,
-					'apis' => $appApis,
+					'specs' => $appSpecs,
 					'name' => $appInfo['name'],
 					'version' => $appInfo['version'],
 					'always_enabled' => in_array($app, $always),
@@ -62,7 +62,7 @@ class AppsService {
 		if (file_exists(\OC::$SERVERROOT . '/core/openapi.json')) {
 			array_unshift($apis, [
 				'id' => 'core',
-				'apis' => ['core'],
+				'specs' => ['core'],
 				'name' => 'Core Nextcloud API',
 				'version' => implode('.', \OCP\Util::getVersion()),
 				'always_enabled' => true,

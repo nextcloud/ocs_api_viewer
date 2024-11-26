@@ -14,7 +14,7 @@
 					<template #icon>
 						<OpenInNew :size="20" />
 					</template>
-					Nextcloud OpenApi extractor
+					Nextcloud openapi-extractor
 				</NcActionLink>
 			</NcActions>
 		</div>

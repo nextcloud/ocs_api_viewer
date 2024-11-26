@@ -29,4 +29,12 @@ class PageController extends Controller {
 		return new TemplateResponse(Application::APP_ID, 'main');
 	}
 
+	/**
+	 * @NoAdminRequired
+	 * @NoCSRFRequired
+	 */
+	public function view(): TemplateResponse {
+		return $this->index();
+	}
+
 }

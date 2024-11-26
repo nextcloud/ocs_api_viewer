@@ -4,8 +4,9 @@
 			:key="app.id"
 			allow-collapse
 			:name="app.name"
-			:open="isSelectedChild($route.params.appid, app)"
-			:to="{path: `/view/${app.id}`}">
+			:open="isSelectedChild($route.params.appid, app) || isManuallyOpened(app.id)"
+			:to="{path: `/view/${app.id}`}"
+			@update:open="(open) => onOpen(app.id, open)">
 			<template #icon>
 				<AppIcon v-if="app.icon_url"
 					:href="app.icon_url" />
@@ -14,7 +15,15 @@
 			<NcAppNavigationItem v-for="child in childApis(app)"
 				:key="child.id"
 				:name="child.name"
-				:to="{path: `/view/${child.id}`}" />
+				:to="{path: `/view/${child.id}`}">
+				<template #icon>
+					<AppIcon v-if="app.icon_url"
+						size="16"
+						:href="app.icon_url" />
+					<ApiIcon v-else
+						size="16" />
+				</template>
+			</NcAppNavigationItem>
 		</NcAppNavigationItem>
 	</NcAppNavigationList>
 </template>
@@ -42,7 +51,7 @@ export default {
 	},
 	computed: {
 		apps() {
-			const apps = store.apps
+			return store.apps
 				.filter(app => app.always_enabled === this.alwaysEnabled)
 				.sort(function(a, b) {
 					// core nextcloud always first
@@ -50,7 +59,6 @@ export default {
 					if (b.id === 'core') return 1
 					return OC.Util.naturalSortCompare(a.name, b.name)
 				})
-			return apps
 		},
 	},
 	methods: {
@@ -58,14 +66,21 @@ export default {
 			if (appId === app.id) {
 				return false
 			}
-			return app.apis.indexOf(appId) >= 0
+			return app.specs.indexOf(appId) >= 0
 		},
 		childApis(app) {
-			if (app.apis === undefined || app.apis.length === 1) {
+			if (app.specs === undefined || app.specs.length === 1) {
 				return []
 			}
-			return app.apis.filter(id => id !== app.id)
+			return app.specs
+				.filter(id => id !== app.id)
 				.map(cid => ({ id: cid, name: cid }))
+		},
+		isManuallyOpened(appId) {
+			return store.isAppOpened(appId)
+		},
+		onOpen(appId, open) {
+			store.appOpen(appId, open)
 		},
 	},
 }

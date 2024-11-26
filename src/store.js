@@ -15,6 +15,7 @@ export const useAppsStore = defineStore('ocs-api-viewer-apps', {
 	state: () => ({
 		loading: true,
 		apps: [],
+		appOpened: [],
 	}),
 
 	actions: {
@@ -40,6 +41,12 @@ export const useAppsStore = defineStore('ocs-api-viewer-apps', {
 
 		getAppById(appId) {
 			return this.apps.find(({ id }) => id === appId) ?? null
+		},
+		isAppOpened(appId) {
+			return this.appOpened[appId] ?? false
+		},
+		appOpen(appId, open) {
+			this.appOpened[appId] = open
 		},
 	},
 })

@@ -1,12 +1,11 @@
 <template>
-	<svg width="24"
-		height="24"
-		viewBox="0 0 24 24">
+	<svg :width="size"
+		:height="size"
+		:viewBox="`0 0 ${size} ${size}`">
 		<image x="0"
 			y="0"
-			width="24"
-			height="24"
-			preserveAspectRatio="xMinYMin meet"
+			:width="size"
+			:height="size"
 			:xlink:href="href"
 			class="app-icon" />
 	</svg>
@@ -17,6 +16,7 @@ export default {
 	name: 'AppIcon',
 	props: {
 		href: { type: String, default: '' },
+		size: { type: Number, default: 24 },
 	},
 }
 </script>
