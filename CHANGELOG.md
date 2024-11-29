@@ -1,5 +1,9 @@
 # Unreleased
 
+# 1.0.8
+- Require Nextcloud 30
+- Complete rewrite of the UI, also solving authentication and navigation issues. Thanks https://github.com/smarinier!
+
 # 1.0.7
 - Support Nextcloud 30
 
