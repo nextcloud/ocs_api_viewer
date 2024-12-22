@@ -1,4 +1,5 @@
 # Unreleased
+- Support Nextcloud 31
 
 # 1.0.8
 - Require Nextcloud 29
