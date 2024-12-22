@@ -1,3 +1,8 @@
+<!--
+  - SPDX-FileCopyrightText: 2024 Sebastien Marinier <seb@smarinier.net>
+  - SPDX-FileCopyrightText: 2023 Kate Döen <kate.doeen@nextcloud.com>
+  - SPDX-License-Identifier: AGPL-3.0-or-later
+-->
 <template>
 	<!--
 	SPDX-FileCopyrightText: Kate Döen <kate.doeen@nextcloud.com>
