@@ -1,3 +1,7 @@
+<!--
+  - SPDX-FileCopyrightText: 2024 Sebastien Marinier <seb@smarinier.net>
+  - SPDX-License-Identifier: AGPL-3.0-or-later
+-->
 <template>
 	<div class="ocs_api-welcome">
 		<AppIcon class="ocs_api-icon" :href="imagePath('ocs_api_viewer', 'app.svg')" />

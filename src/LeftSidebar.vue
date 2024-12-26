@@ -1,3 +1,7 @@
+<!--
+  - SPDX-FileCopyrightText: 2024 Sebastien Marinier <seb@smarinier.net>
+  - SPDX-License-Identifier: AGPL-3.0-or-later
+-->
 <template>
 	<NcAppNavigation>
 		<NcAppNavigationCaption heading-id="nextcloud-api-heading"

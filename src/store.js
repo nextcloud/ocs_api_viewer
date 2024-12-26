@@ -1,3 +1,8 @@
+/**
+ * SPDX-FileCopyrightText: 2024 Sebastien Marinier <seb@smarinier.net>
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 import { defineStore, PiniaVuePlugin, setActivePinia, createPinia } from 'pinia'
 import axios from '@nextcloud/axios'
 import { showError } from '@nextcloud/dialogs'

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * SPDX-FileCopyrightText: 2023 Joas Schilling <coding@schilljs.com>
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 namespace OC\Security\CSP;
 
 class ContentSecurityPolicyNonceManager {
