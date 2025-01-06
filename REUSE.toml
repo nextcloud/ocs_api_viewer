@@ -6,7 +6,7 @@ SPDX-PackageSupplier = "Nextcloud <info@nextcloud.com>"
 SPDX-PackageDownloadLocation = "https://github.com/nextcloud/ocs_api_viewer"
 
 [[annotations]]
-path = ["composer.json", "composer.lock", "package-lock.json", "package.json"]
+path = ["composer.json", "composer.lock", "package-lock.json", "package.json", ".github/dependabot.yml"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2023 Nextcloud GmbH and Nextcloud contributors"
 SPDX-License-Identifier = "AGPL-3.0-or-later"
