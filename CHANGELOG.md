@@ -3,6 +3,8 @@ SPDX-FileCopyrightText: 2023 Kate Döen <kate.doeen@nextcloud.com>
 SPDX-License-Identifier: CC0-1.0
 -->
 # Unreleased
+
+# 1.0.9
 - Support Nextcloud 31
 
 # 1.0.8
