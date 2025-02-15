@@ -6,6 +6,8 @@
 		xmlns="https://getpsalm.org/schema/config"
 		xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
 		errorBaseline="tests/psalm-baseline.xml"
+		findUnusedCode="false"
+		phpVersion="8.0"
 >
 	<!--
 	SPDX-FileCopyrightText: Kate Döen <kate.doeen@nextcloud.com>
@@ -24,13 +26,6 @@
 			<directory name="vendor/psalm" />
 		</ignoreFiles>
 	</extraFiles>
-	<issueHandlers>
-		<UndefinedDocblockClass>
-			<errorLevel type="suppress">
-				<referencedClass name="OC\AppFramework\OCS\BaseResponse"/>
-			</errorLevel>
-		</UndefinedDocblockClass>
-	</issueHandlers>
 	<stubs>
 		<file name="tests/stubs/oc_security_csp_contentsecuritypolicynoncemanager.php" />
 	</stubs>
