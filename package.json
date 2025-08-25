@@ -1,50 +1,50 @@
 {
-	"name": "ocs_api_viewer",
-	"description": "View OCS API specifications for installed apps",
-	"version": "0.0.1",
-	"author": "Kate Döen <kate.doeen@nextcloud.com>",
-	"contributors": [],
-	"bugs": {
-		"url": "https://github.com/nextcloud/ocs_api_viewer"
-	},
-	"license": "agpl",
-	"private": true,
-	"scripts": {
-		"build": "webpack --node-env production --progress",
-		"dev": "webpack --node-env development --progress",
-		"watch": "webpack --node-env development --progress --watch",
-		"serve": "webpack --node-env development serve --progress",
-		"lint": "eslint --ext .js,.vue src",
-		"lint:fix": "eslint --ext .js,.vue src --fix",
-		"stylelint": "stylelint css/*.css css/*.scss src/**/*.scss src/**/*.vue",
-		"stylelint:fix": "stylelint css/*.css css/*.scss src/**/*.scss src/**/*.vue --fix"
-	},
-	"dependencies": {
-		"@nextcloud/axios": "^2.4.0",
-		"@nextcloud/dialogs": "^6.3.0",
-		"@nextcloud/router": "^3.0.1",
-		"@nextcloud/vue": "^8.27.0",
-		"pinia": "^2.3.1",
-		"swagger-ui": "^5.25.2",
-		"vue": "^2.7.16",
-		"vue-material-design-icons": "^5.3.1",
-		"vue-router": "^3.6.5"
-	},
-	"browserslist": [
-		"extends @nextcloud/browserslist-config"
-	],
-	"engines": {
-		"node": "^20.0.0",
-		"npm": "^10.0.0"
-	},
-	"devDependencies": {
-		"@nextcloud/babel-config": "^1.2.0",
-		"@nextcloud/browserslist-config": "^3.0.1",
-		"@nextcloud/eslint-config": "^8.4.2",
-		"@nextcloud/stylelint-config": "^3.0.1",
-		"@nextcloud/webpack-vue-config": "^6.3.0",
-		"copy-webpack-plugin": "^13.0.0",
-		"eslint-webpack-plugin": "^4.2.0",
-		"stylelint-webpack-plugin": "^5.0.1"
-	}
+  "name": "ocs_api_viewer",
+  "description": "View OCS API specifications for installed apps",
+  "version": "0.0.1",
+  "author": "Kate Döen <kate.doeen@nextcloud.com>",
+  "contributors": [],
+  "bugs": {
+    "url": "https://github.com/nextcloud/ocs_api_viewer"
+  },
+  "license": "agpl",
+  "private": true,
+  "scripts": {
+    "build": "webpack --node-env production --progress",
+    "dev": "webpack --node-env development --progress",
+    "watch": "webpack --node-env development --progress --watch",
+    "serve": "webpack --node-env development serve --progress",
+    "lint": "eslint --ext .js,.vue src",
+    "lint:fix": "eslint --ext .js,.vue src --fix",
+    "stylelint": "stylelint css/*.css css/*.scss src/**/*.scss src/**/*.vue",
+    "stylelint:fix": "stylelint css/*.css css/*.scss src/**/*.scss src/**/*.vue --fix"
+  },
+  "dependencies": {
+    "@nextcloud/axios": "^2.4.0",
+    "@nextcloud/dialogs": "^6.3.0",
+    "@nextcloud/router": "^3.0.1",
+    "@nextcloud/vue": "^8.27.0",
+    "pinia": "^2.3.1",
+    "swagger-ui": "^5.25.2",
+    "vue": "^2.7.16",
+    "vue-material-design-icons": "^5.3.1",
+    "vue-router": "^3.6.5"
+  },
+  "browserslist": [
+    "extends @nextcloud/browserslist-config"
+  ],
+  "engines": {
+    "node": "^22.0.0",
+    "npm": "^10.5.0"
+  },
+  "devDependencies": {
+    "@nextcloud/babel-config": "^1.2.0",
+    "@nextcloud/browserslist-config": "^3.0.1",
+    "@nextcloud/eslint-config": "^8.4.2",
+    "@nextcloud/stylelint-config": "^3.0.1",
+    "@nextcloud/webpack-vue-config": "^6.3.0",
+    "copy-webpack-plugin": "^13.0.0",
+    "eslint-webpack-plugin": "^4.2.0",
+    "stylelint-webpack-plugin": "^5.0.1"
+  }
 }
