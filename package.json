@@ -23,7 +23,7 @@
     "@nextcloud/axios": "^2.4.0",
     "@nextcloud/dialogs": "^6.3.0",
     "@nextcloud/router": "^3.0.1",
-    "@nextcloud/vue": "^8.27.0",
+    "@nextcloud/vue": "^8.30.0",
     "pinia": "^2.3.1",
     "swagger-ui": "^5.28.0",
     "vue": "^2.7.16",
