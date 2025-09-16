@@ -32,6 +32,7 @@ export default {
 				DisableAuthorizePlugin,
 			],
 			layout: 'BaseLayout',
+			requestSnippetsEnabled: true,
 		})
 	},
 }
