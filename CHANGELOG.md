@@ -4,6 +4,7 @@ SPDX-License-Identifier: CC0-1.0
 -->
 # Unreleased
 - Enable request snippets in Swagger UI
+- Support Nextcloud 33
 
 # 1.0.10
 - Support Nextcloud 32

@@ -19,7 +19,7 @@
 	<repository>https://github.com/nextcloud/ocs_api_viewer.git</repository>
 	<screenshot>https://raw.githubusercontent.com/nextcloud/ocs_api_viewer/main/docs/screenshot.png</screenshot>
 	<dependencies>
-		<nextcloud min-version="29" max-version="32"/>
+		<nextcloud min-version="29" max-version="33"/>
 	</dependencies>
 	<navigations>
 		<navigation>
