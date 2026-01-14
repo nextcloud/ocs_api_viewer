@@ -13,20 +13,18 @@
 		<NcAppContent>
 			<SwaggerUI v-if="currentAppID"
 				:key="currentAppID"
-				:appid="currentAppID"
 				:openapi="generateUrl(`/apps/ocs_api_viewer/apps/${currentAppID}`)" />
-			<Welcome v-else />
+			<WelcomeScreen v-else />
 		</NcAppContent>
 	</NcContent>
 </template>
 
 <script>
-import NcAppContent from '@nextcloud/vue/dist/Components/NcAppContent.js'
-import NcContent from '@nextcloud/vue/dist/Components/NcContent.js'
 import { generateUrl } from '@nextcloud/router'
-import SwaggerUI from './SwaggerUI.vue'
-import Welcome from './Welcome.vue'
+import { NcAppContent, NcContent } from '@nextcloud/vue'
 import LeftSidebar from './LeftSidebar.vue'
+import SwaggerUI from './SwaggerUI.vue'
+import WelcomeScreen from './WelcomeScreen.vue'
 import { useAppsStore } from './store.js'
 
 const store = useAppsStore()
@@ -38,17 +36,20 @@ export default {
 		NcContent,
 		SwaggerUI,
 		LeftSidebar,
-		Welcome,
+		WelcomeScreen,
 	},
+
 	computed: {
 		// The title to display at the top of the page
 		currentAppID() {
 			return this.$route.params.appid
 		},
 	},
+
 	beforeMount() {
 		store.loadApps()
 	},
+
 	methods: {
 		generateUrl,
 	},
