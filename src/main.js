@@ -5,25 +5,20 @@
  */
 
 import { generateFilePath } from '@nextcloud/router'
-
-import Vue from 'vue'
+import { createApp } from 'vue'
 import MainView from './MainView.vue'
-import { useAppsStore, pinia } from './store.js'
 import router from './router.js'
+import { pinia } from './store.js'
+
 import 'swagger-ui/dist/swagger-ui.css'
 import './swagger-theme-dark.scss'
 
 // eslint-disable-next-line
 __webpack_public_path__ = generateFilePath(appName, '', 'js/')
 
-Vue.mixin({ methods: { t, n } })
+const app = createApp(MainView)
+app.use(pinia)
+app.use(router)
+app.mount('#content')
 
-const store = useAppsStore()
-
-export default new Vue({
-	el: '#content',
-	render: h => h(MainView),
-	store,
-	pinia,
-	router,
-})
+export default app

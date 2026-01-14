@@ -26,14 +26,13 @@
 </template>
 
 <script>
-import NcActionLink from '@nextcloud/vue/dist/Components/NcActionLink.js'
-import NcActions from '@nextcloud/vue/dist/Components/NcActions.js'
-import OpenInNew from 'vue-material-design-icons/OpenInNew.vue'
 import { imagePath } from '@nextcloud/router'
+import { NcActionLink, NcActions } from '@nextcloud/vue'
+import OpenInNew from 'vue-material-design-icons/OpenInNew.vue'
 import AppIcon from './AppIcon.vue'
 
 export default {
-	name: 'Welcome',
+	name: 'WelcomeScreen',
 
 	components: {
 		NcActions,
@@ -41,6 +40,7 @@ export default {
 		OpenInNew,
 		AppIcon,
 	},
+
 	computed: {
 
 		text() {
@@ -50,12 +50,14 @@ export default {
 				help: t('ocs_api_viewer', 'If you want your application to be listed here, you can just create an openapi.json file following the Nextcloud documentation.'),
 			}
 		},
+
 		url() {
 			return {
 				help: 'https://github.com/nextcloud/openapi-extractor',
 			}
 		},
 	},
+
 	methods: {
 		imagePath,
 	},
