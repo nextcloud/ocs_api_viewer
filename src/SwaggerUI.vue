@@ -5,10 +5,11 @@
 <template>
 	<div id="swagger-ui" />
 </template>
+
 <script>
 import JSSwaggerUI from 'swagger-ui'
 
-const DisableAuthorizePlugin = function() {
+function DisableAuthorizePlugin() {
 	return {
 		wrapComponents: {
 			authorizeBtn: () => () => null,
@@ -18,9 +19,9 @@ const DisableAuthorizePlugin = function() {
 export default {
 	name: 'SwaggerUI',
 	props: {
-		appid: { type: String, default: '' },
 		openapi: { type: String, default: '' },
 	},
+
 	mounted() {
 		JSSwaggerUI({
 			url: this.openapi,
