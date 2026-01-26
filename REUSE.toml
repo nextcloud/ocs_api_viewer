@@ -16,3 +16,9 @@ path = ["img/app-color.svg", "img/app.svg"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2016-2024 Nextcloud GmbH"
 SPDX-License-Identifier = "LicenseRef-NextcloudTrademarks"
+
+[[annotations]]
+path = ["vendor-bin/psalm/*", "vendor-bin/cs-fixer/*"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 Nextcloud GmbH and Nextcloud contributors"
+SPDX-License-Identifier = "AGPL-3.0-or-later"
