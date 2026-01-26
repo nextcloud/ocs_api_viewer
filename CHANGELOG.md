@@ -3,6 +3,7 @@ SPDX-FileCopyrightText: 2023 Kate Döen <kate.doeen@nextcloud.com>
 SPDX-License-Identifier: CC0-1.0
 -->
 # Unreleased
+- Require Nextcloud 32
 
 # 1.0.11
 - Enable request snippets in Swagger UI

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 // SPDX-FileCopyrightText: Kate Döen <kate.doeen@nextcloud.com>
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -36,7 +37,7 @@ class AppsService {
 				foreach ($iterator as $file) {
 					if ($file->getFilename() == 'openapi.json') {
 						$appSpecs[] = $app;
-					} else if (str_starts_with($file->getFilename(), 'openapi-') && str_ends_with($file->getFilename(), '.json')) {
+					} elseif (str_starts_with($file->getFilename(), 'openapi-') && str_ends_with($file->getFilename(), '.json')) {
 						$appSpecs[] = $app . '-' . substr($file->getFilename(), 8, -5);
 					}
 				}
@@ -122,6 +123,7 @@ class AppsService {
 		// fix paths when NC is accessed at a sub path
 		$webRoot = $this->url->getWebroot();
 		if ($webRoot !== '' && $webRoot !== '/') {
+			/** @var string $path */
 			foreach (array_keys($data['paths']) as $path) {
 				$prefixedPath = $webRoot . $path;
 				$data['paths'][$prefixedPath] = $data['paths'][$path];

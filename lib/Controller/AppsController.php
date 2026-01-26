@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 // SPDX-FileCopyrightText: Kate Döen <kate.doeen@nextcloud.com>
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -16,8 +17,8 @@ class AppsController extends Controller {
 	private AppsService $service;
 
 	public function __construct(
-		IRequest    $request,
-		AppsService $service
+		IRequest $request,
+		AppsService $service,
 	) {
 		parent::__construct(Application::APP_ID, $request);
 		$this->service = $service;
