@@ -7,7 +7,7 @@
 		xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
 		errorBaseline="tests/psalm-baseline.xml"
 		findUnusedCode="false"
-		phpVersion="8.0"
+		phpVersion="8.1"
 >
 	<!--
 	SPDX-FileCopyrightText: Kate Döen <kate.doeen@nextcloud.com>
@@ -15,16 +15,9 @@
 	-->
 	<projectFiles>
 		<directory name="lib" />
-		<ignoreFiles>
-			<directory name="vendor" />
-		</ignoreFiles>
 	</projectFiles>
 	<extraFiles>
 		<directory name="vendor" />
-		<ignoreFiles>
-			<directory name="vendor/phpunit/php-code-coverage" />
-			<directory name="vendor/psalm" />
-		</ignoreFiles>
 	</extraFiles>
 	<stubs>
 		<file name="tests/stubs/oc_security_csp_contentsecuritypolicynoncemanager.php" />
