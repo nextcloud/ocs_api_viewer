@@ -15,6 +15,9 @@
 	-->
 	<projectFiles>
 		<directory name="lib" />
+		<ignoreFiles>
+			<directory name="vendor"/>
+		</ignoreFiles>
 	</projectFiles>
 	<extraFiles>
 		<directory name="vendor" />
