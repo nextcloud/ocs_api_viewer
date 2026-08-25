@@ -3,23 +3,23 @@
   - SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 <template>
-	<NcAppNavigation>
-		<NcAppNavigationCaption heading-id="nextcloud-api-heading"
-			:is-heading="true"
+	<NcAppNavigation :aria-label="t('ocs_api_viewer', 'Apis')">
+		<NcAppNavigationCaption headingId="nextcloud-api-heading"
+			:isHeading="true"
 			:name="t('ocs_api_viewer', 'Nextcloud APIs')" />
 		<ApiNavigationList arialabel="nextcloud-api-heading"
-			always-enabled />
-		<NcAppNavigationCaption heading-id="installed-api-heading"
-			:is-heading="true"
+			alwaysEnabled />
+		<NcAppNavigationCaption headingId="installed-api-heading"
+			:isHeading="true"
 			:name="t('ocs_api_viewer', 'Application APIs')" />
 		<ApiNavigationList arialabel="installed-api-heading"
-			:always-enabled="false" />
+			:alwaysEnabled="false" />
 	</NcAppNavigation>
 </template>
 
 <script>
-import NcAppNavigation from '@nextcloud/vue/dist/Components/NcAppNavigation.js'
-import NcAppNavigationCaption from '@nextcloud/vue/dist/Components/NcAppNavigationCaption.js'
+import { t } from '@nextcloud/l10n'
+import { NcAppNavigation, NcAppNavigationCaption } from '@nextcloud/vue'
 import ApiNavigationList from './ApiNavigationList.vue'
 
 export default {
@@ -29,5 +29,7 @@ export default {
 		NcAppNavigationCaption,
 		ApiNavigationList,
 	},
+
+	methods: { t },
 }
 </script>

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-@use 'swagger-dark' as sw;
+@use 'swagger-dark.scss' as sw;
 
 [data-themes*='dark'] {
 	@include sw.main-swagger;
