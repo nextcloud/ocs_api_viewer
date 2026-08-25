@@ -4,6 +4,9 @@ SPDX-License-Identifier: CC0-1.0
 -->
 # Unreleased
 
+# 1.0.13
+- Support Nextcloud 35
+
 # 1.0.12
 - Support Nextcloud 34
 
