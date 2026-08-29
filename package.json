@@ -42,7 +42,7 @@
     "@nextcloud/stylelint-config": "^3.2.2",
     "@nextcloud/webpack-vue-config": "^7.0.4",
     "copy-webpack-plugin": "^14.0.0",
-    "eslint": "^10.9.0",
+    "eslint": "^10.9.1",
     "eslint-webpack-plugin": "^6.0.0",
     "stylelint-webpack-plugin": "^5.1.0"
   },
